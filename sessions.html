@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Sessions - SkillSwap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎓 SkillSwap</h1>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="find-match.html" class="nav-link">Find Match</a>
+                <a href="sessions.html" class="nav-link active">My Sessions</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sessions Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="profile-header">
+                <h1>My Sessions</h1>
+                <p>Manage your learning and teaching sessions</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="matches">Match Requests</button>
+                <button class="tab" data-tab="scheduled">Scheduled Sessions</button>
+                <button class="tab" data-tab="completed">Completed Sessions</button>
+            </div>
+
+            <!-- Match Requests Tab -->
+            <div class="tab-content active" id="matchesTab">
+                <div class="profile-card full-width">
+                    <h2>Pending Match Requests</h2>
+                    <div id="matchRequestsList">
+                        <p class="empty-state">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheduled Sessions Tab -->
+            <div class="tab-content" id="scheduledTab">
+                <div class="profile-card full-width">
+                    <h2>Upcoming Sessions</h2>
+                    <div id="scheduledSessionsList">
+                        <p class="empty-state">No scheduled sessions</p>
+                    </div>
+                </div>
+                
+                <div class="profile-card full-width">
+                    <h2>Schedule New Session</h2>
+                    <div class="session-form">
+                        <select id="matchSelect" required>
+                            <option value="">Select a match...</option>
+                        </select>
+                        <input type="text" id="sessionSubject" placeholder="Subject/Topic" required>
+                        <input type="datetime-local" id="sessionDateTime" required>
+                        <input type="text" id="sessionMeetLink" placeholder="Meeting Link (Google Meet, Zoom, etc.)">
+                        <textarea id="sessionNotes" rows="3" placeholder="Session notes or agenda..."></textarea>
+                        <button class="btn btn-primary" id="scheduleSessionBtn">Schedule Session</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Sessions Tab -->
+            <div class="tab-content" id="completedTab">
+                <div class="profile-card full-width">
+                    <h2>Session History</h2>
+                    <div id="completedSessionsList">
+                        <p class="empty-state">No completed sessions yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating Modal -->
+    <div class="modal" id="ratingModal">
+        <div class="modal-content">
+            <span class="close" id="closeRatingModal">&times;</span>
+            <h2>Rate Your Session</h2>
+            <div id="ratingModalContent">
+                <p>How was your session with <strong id="ratingUserName"></strong>?</p>
+                <div class="rating-stars">
+                    <span class="star" data-rating="1">⭐</span>
+                    <span class="star" data-rating="2">⭐</span>
+                    <span class="star" data-rating="3">⭐</span>
+                    <span class="star" data-rating="4">⭐</span>
+                    <span class="star" data-rating="5">⭐</span>
+                </div>
+                <textarea id="ratingFeedback" rows="4" placeholder="Share your feedback (optional)..."></textarea>
+                <button class="btn btn-primary btn-block" id="submitRatingBtn">Submit Rating</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="spinner hidden" id="loadingSpinner"></div>
+
+    <!-- Success Message -->
+    <div class="success-message hidden" id="successMessage">
+        Success!
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="sessions.js"></script>
+</body>
+</html>

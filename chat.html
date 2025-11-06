@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - SkillSwap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-effect">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <div class="logo-icon">📚</div>
+                    <h1 class="logo-text">SkillSwap</h1>
+                </div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="find-match.html" class="nav-link">Find Match</a>
+                <a href="sessions.html" class="nav-link">Sessions</a>
+                <a href="chat.html" class="nav-link active">Messages</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Container -->
+    <div class="chat-page">
+        <div class="container-fluid">
+            <div class="chat-container">
+                <!-- Conversations List -->
+                <div class="conversations-panel">
+                    <div class="conversations-header">
+                        <h2>Messages</h2>
+                        <div class="search-conversations">
+                            <input type="text" id="searchConversations" placeholder="Search messages...">
+                        </div>
+                    </div>
+                    <div class="conversations-list" id="conversationsList">
+                        <div class="empty-conversations">
+                            <div class="empty-icon">💬</div>
+                            <p>No conversations yet</p>
+                            <small>Start chatting with your matches</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="chat-area">
+                    <div class="chat-welcome" id="chatWelcome">
+                        <div class="welcome-icon">💬</div>
+                        <h2>Welcome to Messages</h2>
+                        <p>Select a conversation to start chatting</p>
+                    </div>
+
+                    <div class="chat-active hidden" id="chatActive">
+                        <!-- Chat Header -->
+                        <div class="chat-header">
+                            <div class="chat-user-info">
+                                <div class="chat-avatar" id="chatAvatar">
+                                    <img src="" alt="" id="chatAvatarImg">
+                                </div>
+                                <div class="chat-user-details">
+                                    <h3 id="chatUserName">User Name</h3>
+                                    <span class="online-status" id="onlineStatus">Online</span>
+                                </div>
+                            </div>
+                            <div class="chat-actions">
+                                <button class="icon-btn" title="Video Call">📹</button>
+                                <button class="icon-btn" title="More Options">⋮</button>
+                            </div>
+                        </div>
+
+                        <!-- Messages Area -->
+                        <div class="messages-area" id="messagesArea">
+                            <!-- Messages will be loaded here -->
+                        </div>
+
+                        <!-- Message Input -->
+                        <div class="message-input-area">
+                            <button class="icon-btn" title="Attach File">📎</button>
+                            <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
+                            <button class="icon-btn" title="Emoji">😊</button>
+                            <button class="btn-send" id="sendMessageBtn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="spinner-overlay hidden" id="loadingSpinner">
+        <div class="modern-spinner"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="theme.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>

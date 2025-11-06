@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - SkillSwap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎓 SkillSwap</h1>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="find-match.html" class="nav-link">Find Match</a>
+                <a href="sessions.html" class="nav-link">My Sessions</a>
+                <a href="profile.html" class="nav-link active">Profile</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="profile-header">
+                <h1>My Profile</h1>
+                <p>Manage your skills and information</p>
+            </div>
+
+            <div class="profile-grid">
+                <!-- Profile Info Card -->
+                <div class="profile-card">
+                    <h2>Profile Information</h2>
+                    <div class="profile-info">
+                        <div class="profile-avatar" id="profileAvatar">
+                            👤
+                        </div>
+                        <div class="profile-details">
+                            <h3 id="profileName">Loading...</h3>
+                            <p id="profileEmail">email@example.com</p>
+                            <p class="profile-stats">
+                                <span>📚 <strong id="profileSessions">0</strong> Sessions</span>
+                                <span>⭐ <strong id="profileRating">0.0</strong> Rating</span>
+                                <span>🏆 <strong id="profilePoints">0</strong> Points</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Management -->
+                <div class="profile-card full-width">
+                    <h2>Skills I Can Teach</h2>
+                    <div class="skill-input-group">
+                        <input type="text" id="teachSkillInput" placeholder="Enter a skill (e.g., Mathematics, Python)">
+                        <button class="btn btn-primary" id="addTeachSkill">Add Skill</button>
+                    </div>
+                    <div id="teachSkillsList" class="skills-list">
+                        <p class="empty-state">No skills added yet</p>
+                    </div>
+                </div>
+
+                <div class="profile-card full-width">
+                    <h2>Skills I Want to Learn</h2>
+                    <div class="skill-input-group">
+                        <input type="text" id="learnSkillInput" placeholder="Enter a skill you want to learn">
+                        <button class="btn btn-primary" id="addLearnSkill">Add Skill</button>
+                    </div>
+                    <div id="learnSkillsList" class="skills-list">
+                        <p class="empty-state">No skills added yet</p>
+                    </div>
+                </div>
+
+                <!-- Availability Section -->
+                <div class="profile-card full-width">
+                    <h2>Availability</h2>
+                    <div class="availability-section">
+                        <label>
+                            <input type="checkbox" id="availableMonday" class="availability-checkbox">
+                            <span>Monday</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="availableTuesday" class="availability-checkbox">
+                            <span>Tuesday</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="availableWednesday" class="availability-checkbox">
+                            <span>Wednesday</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="availableThursday" class="availability-checkbox">
+                            <span>Thursday</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="availableFriday" class="availability-checkbox">
+                            <span>Friday</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="availableSaturday" class="availability-checkbox">
+                            <span>Saturday</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="availableSunday" class="availability-checkbox">
+                            <span>Sunday</span>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary" id="saveAvailability">Save Availability</button>
+                </div>
+
+                <!-- Bio Section -->
+                <div class="profile-card full-width">
+                    <h2>About Me</h2>
+                    <textarea id="userBio" rows="4" placeholder="Tell others about yourself, your learning goals, and teaching experience..."></textarea>
+                    <button class="btn btn-primary" id="saveBio">Save Bio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="spinner hidden" id="loadingSpinner"></div>
+
+    <!-- Success Message -->
+    <div class="success-message hidden" id="successMessage">
+        Profile updated successfully!
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

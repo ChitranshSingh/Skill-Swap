@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Match - SkillSwap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎓 SkillSwap</h1>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="find-match.html" class="nav-link active">Find Match</a>
+                <a href="sessions.html" class="nav-link">My Sessions</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Find Match Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="profile-header">
+                <h1>Find Your Perfect Match</h1>
+                <p>Connect with students who can teach what you want to learn</p>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="profile-card full-width">
+                <div class="search-section">
+                    <input type="text" id="searchInput" placeholder="Search by skill or name...">
+                    <button class="btn btn-primary" id="searchBtn">Search</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
+                </div>
+            </div>
+
+            <!-- Matches Grid -->
+            <div class="matches-grid" id="matchesGrid">
+                <p class="empty-state">Loading matches...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Modal -->
+    <div class="modal" id="requestModal">
+        <div class="modal-content">
+            <span class="close" id="closeRequestModal">&times;</span>
+            <h2>Send Match Request</h2>
+            <div id="requestModalContent">
+                <p>Send a match request to <strong id="matchUserName"></strong>?</p>
+                <div class="match-details" id="matchDetails"></div>
+                <textarea id="requestMessage" rows="4" placeholder="Add a message (optional)..."></textarea>
+                <button class="btn btn-primary btn-block" id="sendRequestBtn">Send Request</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="spinner hidden" id="loadingSpinner"></div>
+
+    <!-- Success Message -->
+    <div class="success-message hidden" id="successMessage">
+        Request sent successfully!
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="find-match.js"></script>
+</body>
+</html>

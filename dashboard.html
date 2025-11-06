@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SkillSwap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎓 SkillSwap</h1>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="find-match.html" class="nav-link">Find Match</a>
+                <a href="sessions.html" class="nav-link">My Sessions</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1>Welcome, <span id="userName">Student</span>! 👋</h1>
+                <p>Ready to learn and teach today?</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="dashboard-stats">
+                <div class="stat-box">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-content">
+                        <h3 id="sessionsCount">0</h3>
+                        <p>Sessions Completed</p>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-content">
+                        <h3 id="userRating">0.0</h3>
+                        <p>Average Rating</p>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-content">
+                        <h3 id="userPoints">0</h3>
+                        <p>Points Earned</p>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <h3 id="matchesCount">0</h3>
+                        <p>Active Matches</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-cards">
+                    <a href="profile.html" class="action-card">
+                        <div class="action-icon">✏️</div>
+                        <h3>Update Skills</h3>
+                        <p>Add skills you can teach or want to learn</p>
+                    </a>
+                    <a href="find-match.html" class="action-card">
+                        <div class="action-icon">🔍</div>
+                        <h3>Find a Match</h3>
+                        <p>Connect with students who complement your skills</p>
+                    </a>
+                    <a href="sessions.html" class="action-card">
+                        <div class="action-icon">📅</div>
+                        <h3>Schedule Session</h3>
+                        <p>Book a learning session with your matches</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Skills Overview -->
+            <div class="skills-overview">
+                <div class="skills-section">
+                    <h2>Skills I Can Teach 🎓</h2>
+                    <div id="teachingSkills" class="skills-list">
+                        <p class="empty-state">No skills added yet. <a href="profile.html">Add skills</a></p>
+                    </div>
+                </div>
+                <div class="skills-section">
+                    <h2>Skills I Want to Learn 📖</h2>
+                    <div id="learningSkills" class="skills-list">
+                        <p class="empty-state">No skills added yet. <a href="profile.html">Add skills</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div id="recentActivity" class="activity-list">
+                    <p class="empty-state">No recent activity</p>
+                </div>
+            </div>
+
+            <!-- Badges Section -->
+            <div class="badges-section">
+                <h2>Your Badges 🏅</h2>
+                <div id="userBadges" class="badges-grid">
+                    <p class="empty-state">Complete sessions to earn badges!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="spinner hidden" id="loadingSpinner"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
